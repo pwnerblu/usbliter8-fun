@@ -183,7 +183,6 @@ U32_1 = struct.pack("<I", 1)
 #         (op,        node path,      prop name,                value)
 PATCHES = [
     ("del-prop", "/defaults", "content-protect",       None),
-    ("set-prop", "/defaults", "no-effaceable-storage", U32_1),
     # Upstream calls this an "AppleKeyStore SEP workaround", taken from qemu-t8030's xnu.c.
     #
     # 2026-08-07: tested as a suspect for the USB-enumeration failure and CLEARED. It was
