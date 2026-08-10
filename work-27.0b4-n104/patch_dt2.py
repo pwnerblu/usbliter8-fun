@@ -204,7 +204,7 @@ PATCHES = [
     #
     # Note the node is /chosen, not /defaults. b2's script byte-searched for the property
     # name so the path never mattered to it; this table is path-based, so it does.
-    ("set-prop", "/chosen",   "ephemeral-storage",     U32_1),
+    #("set-prop", "/chosen",   "ephemeral-storage",     U32_1),
     ("set-prop", "/chosen",   "disable-transport-rm",     U32_1),
 ]
 
