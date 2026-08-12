@@ -197,7 +197,7 @@ PATCHES = [
     #     IODeviceTree, and setting it here overrides iBoot's own decision.
     #   - patch_dt.py (SSHRD) does not set it and USB works there every time.
     # Plausible, and wrong.
-    #("set-prop", "/product",  "boot-ios-diagnostics",  U32_1),
+    ("set-prop", "/product",  "boot-ios-diagnostics",  U32_1),
     # b2's get_boot.py ran a separate `set_ephemeral.py DeviceTree_patched.raw` after
     # dt_patch2 to set this. b3 deleted that script and never replaced the step, so the
     # normal-boot DeviceTree shipped with ephemeral-storage still 0.
