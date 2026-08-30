@@ -182,7 +182,7 @@ U32_1 = struct.pack("<I", 1)
 
 #         (op,        node path,      prop name,                value)
 PATCHES = [
-    ("del-prop", "/defaults", "content-protect",       None),
+    #("del-prop", "/defaults", "content-protect",       None),
     # Upstream calls this an "AppleKeyStore SEP workaround", taken from qemu-t8030's xnu.c.
     #
     # 2026-08-07: tested as a suspect for the USB-enumeration failure and CLEARED. It was
@@ -197,7 +197,7 @@ PATCHES = [
     #     IODeviceTree, and setting it here overrides iBoot's own decision.
     #   - patch_dt.py (SSHRD) does not set it and USB works there every time.
     # Plausible, and wrong.
-    ("set-prop", "/product",  "boot-ios-diagnostics",  U32_1),
+    #("set-prop", "/product",  "boot-ios-diagnostics",  U32_1),
     # b2's get_boot.py ran a separate `set_ephemeral.py DeviceTree_patched.raw` after
     # dt_patch2 to set this. b3 deleted that script and never replaced the step, so the
     # normal-boot DeviceTree shipped with ephemeral-storage still 0.
