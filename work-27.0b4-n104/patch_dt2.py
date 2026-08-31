@@ -179,6 +179,7 @@ def del_prop(dt, node_path, name):
 # ---- patch table (each row == one line in xnu.c) ---------------------------
 
 U32_1 = struct.pack("<I", 1)
+U32_0 = struct.pack("<I", 0)
 
 #         (op,        node path,      prop name,                value)
 PATCHES = [
@@ -197,16 +198,16 @@ PATCHES = [
     #     IODeviceTree, and setting it here overrides iBoot's own decision.
     #   - patch_dt.py (SSHRD) does not set it and USB works there every time.
     # Plausible, and wrong.
-    ("set-prop", "/product",  "boot-ios-diagnostics",  U32_1),
+    #("set-prop", "/product",  "boot-ios-diagnostics",  U32_1),
     # b2's get_boot.py ran a separate `set_ephemeral.py DeviceTree_patched.raw` after
     # dt_patch2 to set this. b3 deleted that script and never replaced the step, so the
     # normal-boot DeviceTree shipped with ephemeral-storage still 0.
     #
     # Note the node is /chosen, not /defaults. b2's script byte-searched for the property
     # name so the path never mattered to it; this table is path-based, so it does.
-    ("set-prop", "/chosen",   "no-effaceable-storage",     U32_1),
-    ("set-prop", "/chosen",   "ephemeral-storage",     U32_1),
+    #("set-prop", "/chosen",   "ephemeral-storage",     U32_1),
     ("set-prop", "/chosen",   "disable-transport-rm",     U32_1),
+    ("set-prop", "/chosen",   "protected-data-access",     U32_0),
 ]
 
 _OPS = {"set-prop": set_prop, "del-prop": del_prop}
